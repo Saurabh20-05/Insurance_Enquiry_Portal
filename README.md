@@ -4,7 +4,7 @@ A modern multi-step insurance enquiry portal with a secure admin dashboard and r
 ---
 
 ## 📌 About
-**InsuCare Pro** is a college project — a front-end web application that lets customers submit insurance enquiries through a clean, guided 4-step form. Admins can log in to a secure dashboard to review submissions and update their status. Data is persisted via localStorage with no backend required.
+**InsuCare Pro** — a web application that lets customers submit insurance enquiries through a clean, guided 4-step form. Admins can log in to a secure dashboard to review submissions and update their status. Data is persisted via localStorage with no backend required.
 
 ---
 
@@ -46,8 +46,6 @@ insucare-pro/
 ---
 
 ## 🚀 Getting Started
-
-**No installation or build tools needed — pure front-end.**
 
 ```bash
 # Clone the repository
