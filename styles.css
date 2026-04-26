@@ -1,0 +1,163 @@
+:root {
+    --accent: #6366f1;
+    --accent-hover: #4f46e5;
+    --danger: #ef4444;
+    --success: #10b981;
+    --glass: rgba(255, 255, 255, 0.8);
+    --border: rgba(255, 255, 255, 0.3);
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+
+body { background: var(--bg-gradient); min-height: 100vh; color: var(--text-main); }
+
+.container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+/* NAVIGATION LOGIC */
+.form-step { display: none; }
+.form-step.active { display: block; animation: fadeIn 0.4s ease; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Navbar */
+.navbar { padding: 1.5rem 0; }
+.nav-flex { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-weight: 700; font-size: 1.5rem; }
+.logo span { color: var(--accent); }
+.admin-link-btn { text-decoration: none; padding: 8px 16px; background: white; border-radius: 8px; color: var(--text-main); font-weight: 600; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+
+/* Glass Card */
+.glass-card { background: var(--glass); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 24px; padding: 3rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+
+/* Stepper */
+.stepper { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; }
+.step-item { width: 35px; height: 35px; border-radius: 50%; background: #e2e8f0; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.8rem; transition: 0.3s; }
+.step-item.active { background: var(--accent); color: white; transform: scale(1.2); }
+.step-line { flex: 1; height: 2px; background: #e2e8f0; margin: 0 10px; }
+
+/* Inputs */
+.input-group { margin-bottom: 1.5rem; }
+label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-muted); }
+input, textarea { width: 100%; padding: 12px 16px; border: 1.5px solid #e2e8f0; border-radius: 10px; background: rgba(255,255,255,0.5); font-size: 1rem; }
+input:focus, textarea:focus { outline: none; border-color: var(--accent); background: white; }
+.error-msg { color: var(--danger); font-size: 0.75rem; margin-top: 4px; display: block; min-height: 1rem; }
+
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+/* Insurance Grid */
+.insurance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; }
+.ins-option input { display: none; }
+.option-content { background: white; border: 2px solid #e2e8f0; padding: 20px; border-radius: 12px; text-align: center; cursor: pointer; transition: 0.2s; }
+.ins-option input:checked + .option-content { border-color: var(--accent); background: #eef2ff; color: var(--accent); }
+
+/* Buttons */
+.form-nav { display: flex; justify-content: space-between; margin-top: 3rem; }
+.btn-solid { background: var(--accent); color: white; padding: 12px 28px; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; }
+.btn-solid.btn-success { background: var(--success); }
+.btn-outline { background: transparent; border: 1.5px solid #e2e8f0; padding: 12px 28px; border-radius: 10px; cursor: pointer; }
+
+/* Review Grid */
+.review-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; background: #f8fafc; padding: 1.5rem; border-radius: 12px; }
+.review-item { display: flex; flex-direction: column; }
+.review-item strong { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
+
+/* Toast */
+.toast { position: fixed; bottom: 20px; right: 20px; background: #1e293b; color: white; padding: 12px 24px; border-radius: 8px; transform: translateY(100px); transition: 0.3s; }
+.toast.show { transform: translateY(0); }
+
+/* Admin Badge Colors */
+.badge { padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; }
+.bg-pending { background: #fef3c7; color: #92400e; }
+.bg-approved { background: #dcfce7; color: #166534; }
+.bg-rejected { background: #fee2e2; color: #991b1b; }
+
+
+
+
+
+
+
+
+
+
+/* --- ADMIN DASHBOARD SPECIFIC FIXES --- */
+
+/* Ensures the admin login is centered */
+.admin-body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Stat Grid - Forces 3 columns and aligns content */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card h3 {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Styles the numbers immediately after the title */
+.stat-card h3 span {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--accent);
+    margin-left: 10px;
+}
+
+/* Admin Table Row-Card styling */
+#adminTable tr {
+    background: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#adminTable tr:hover {
+    background: #f8fafc;
+    transform: scale(1.005);
+}
+
+#adminTable td {
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* Admin Login Specifics */
+#adminLogin h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+#adminLogin .input-group input {
+    background: white;
+}
+
+/* Custom width for search/filter container */
+.admin-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}

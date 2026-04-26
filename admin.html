@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard | InsuCare Pro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-body">
+    <div class="container">
+        <div id="adminLogin" class="glass-card" style="max-width: 400px; margin: 100px auto;">
+            <h2>Admin Secure Access</h2>
+            <br>
+            <div class="input-group">
+                <input type="text" id="user" placeholder="Username">
+            </div>
+            <div class="input-group">
+                <input type="password" id="pass" placeholder="Password">
+            </div>
+            <button id="loginBtn" class="btn-solid" style="width: 100%;">Unlock Dashboard</button>
+        </div>
+
+        <div id="adminDashboard" style="display: none;">
+            <div class="nav-flex" style="margin-bottom: 2rem;">
+                <h2>Systems Overview</h2>
+                <button onclick="logoutAdmin()" class="btn-outline">Logout</button>
+            </div>
+
+            <div class="stat-grid">
+    <div class="stat-card">
+        <h3>Total Enquiries: <span id="statTotal">0</span></h3>
+    </div>
+    
+    <div class="stat-card">
+        <h3>Pending Review: <span id="statPending">0</span></h3>
+    </div>
+    
+    <div class="stat-card">
+        <h3>Conversion Rate: <span id="statRate">0%</span></h3>
+    </div>
+</div>
+
+            <div class="glass-card" style="padding: 1.5rem; margin-bottom: 1rem;">
+                <div class="nav-flex">
+                    <input type="text" id="adminSearch" placeholder="Search by ID or Name..." style="width: 60%;">
+                    <select id="filterType" style="width: 30%;">
+                        <option value="All">All Types</option>
+                        <option value="Life">Life</option>
+                        <option value="Health">Health</option>
+                        <option value="Vehicle">Vehicle</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="glass-card" style="padding: 0; overflow: hidden;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead style="background: #f8fafc; text-align: left;">
+                        <tr>
+                            <th style="padding: 1rem;">Ref ID</th>
+                            <th style="padding: 1rem;">Customer</th>
+                            <th style="padding: 1rem;">Plan</th>
+                            <th style="padding: 1rem;">Status</th>
+                            <th style="padding: 1rem;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminTable"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>

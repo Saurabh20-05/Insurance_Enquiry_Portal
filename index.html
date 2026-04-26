@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsuCare Pro | Modern Insurance Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-blobs"></div>
+    
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <h1 class="logo">Insu<span>Care</span></h1>
+            <a href="admin.html" class="admin-link-btn">Admin Portal</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div style="margin-bottom: 15px; font-size: 0.9rem; color: #64748b;">
+            Step <span id="currentStepText">1</span> of 4
+            <div style="width: 100%; height: 6px; background: #e2e8f0; border-radius: 10px; margin-top: 5px;">
+                <div id="progressBar" style="width: 25%; height: 100%; background: #6366f1; border-radius: 10px; transition: 0.3s;"></div>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <div class="stepper">
+                <div class="step-item active" id="s1">1</div>
+                <div class="step-line"></div>
+                <div class="step-item" id="s2">2</div>
+                <div class="step-line"></div>
+                <div class="step-item" id="s3">3</div>
+                <div class="step-line"></div>
+                <div class="step-item" id="s4">4</div>
+            </div>
+
+            <form id="enquiryForm" novalidate>
+                <div class="form-step active" data-step="1">
+                    <h2 class="step-title">Personal Information</h2>
+                    <br>
+                    <p class="step-subtitle">Let's start with your basic details.</p>
+                    <br>
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text" id="fullName" placeholder="e.g. Saurabh" required>
+                        <span class="error-msg"></span>
+                    </div>
+                    <div class="row">
+                        <div class="input-group">
+                            <label>Email</label>
+                            <input type="email" id="email" placeholder="saurabh@example.com" required>
+                            <span class="error-msg"></span>
+                        </div>
+                        <div class="input-group">
+                            <label>Phone</label>
+                            <input type="tel" id="phone" placeholder="10 Digit Number" required>
+                            <span class="error-msg"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="2">
+                    <h2 class="step-title">Plan Selection</h2>
+                    <br>
+                    <div class="insurance-grid">
+                        <label class="ins-option">
+                            <input type="radio" name="insType" value="Life" required>
+                            <div class="option-content"><span>🧬</span> Life</div>
+                        </label>
+                        <label class="ins-option">
+                            <input type="radio" name="insType" value="Health">
+                            <div class="option-content"><span>🏥</span> Health</div>
+                        </label>
+                        <label class="ins-option">
+                            <input type="radio" name="insType" value="Vehicle">
+                            <div class="option-content"><span>🚗</span> Vehicle</div>
+                        </label>
+                        <label class="ins-option">
+                            <input type="radio" name="insType" value="Travel">
+                            <div class="option-content"><span>✈️</span> Travel</div>
+                        </label>
+                    </div>
+                    <span id="radioError" class="error-msg" style="text-align: center; display: block; margin-top: 15px;"></span>
+                </div>
+
+                <div class="form-step" data-step="3">
+                    <h2 class="step-title">Additional Context</h2>
+                    <br>
+                    <div class="input-group">
+                        <label>Describe your requirements</label>
+                        <textarea id="message" rows="4" placeholder="Any specific coverage you need?" required></textarea>
+                        <span class="error-msg"></span>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="4">
+                    <h2 class="step-title">Final Review</h2>
+                    <div id="reviewContent" class="review-grid"></div>
+                    
+                    <div class="captcha-box" style="background: white; padding: 20px; border-radius: 12px; margin-top: 20px; border: 1px solid #e2e8f0;">
+                        <label id="captchaLabel" style="font-weight: bold; margin-bottom: 10px; display: block;"></label>
+                        <input type="number" id="captchaInput" placeholder="Enter result" style="width: 150px;">
+                        <span id="captchaError" class="error-msg"></span>
+                    </div>
+                </div>
+
+                <div class="form-nav">
+                    <button type="button" id="prevBtn" class="btn-outline" disabled>Back</button>
+                    <button type="button" id="nextBtn" class="btn-solid">Continue</button>
+                    <button type="submit" id="submitBtn" class="btn-solid btn-success" style="display:none;">Finish Submission</button>
+                </div>
+            </form>
+
+            <div id="successMessage" class="success-screen" style="display:none; text-align: center; padding: 20px;">
+                <div style="font-size: 3rem; margin-bottom: 15px;">✅</div>
+                <h2>Enquiry Received!</h2>
+                <p>Ref ID: <span id="displayId" style="font-family: monospace; font-weight: bold; background: #eef2ff; padding: 4px 8px;"></span></p>
+                <button onclick="location.reload()" class="btn-solid" style="margin-top: 20px;">Submit Another</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+</body>
+</html>
