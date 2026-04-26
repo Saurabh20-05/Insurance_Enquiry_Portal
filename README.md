@@ -23,6 +23,11 @@ A modern multi-step insurance enquiry portal with a secure admin dashboard and r
 | 📱 Responsive Design | Works on desktop, tablet, and mobile |
 
 
+---
+
+## 🗂️ Project Structure
+
+```
 insucare-pro/
 │
 ├── index.html        # Customer-facing multi-step enquiry form
@@ -30,7 +35,7 @@ insucare-pro/
 ├── styles.css        # Shared stylesheet for both pages
 ├── script.js         # Customer form logic, validation, localStorage write
 └── admin.js          # Admin dashboard logic, filters, status updates
-
+```
 
 ---
 
@@ -160,7 +165,5 @@ Each submission earns a unique **Ref ID** and is saved to localStorage instantly
 
 ## 👨‍💻 Author
 
-Made with 💜 as a Front-End Web Development college project.
+Made with 💜 as a college project.
 ---
-
-## 🗂️ Project Structure
